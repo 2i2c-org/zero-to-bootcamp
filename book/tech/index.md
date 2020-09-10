@@ -56,11 +56,11 @@ The [jupyterhub/zero-to-jupyterhub-k8s]() project is both [a how-to guide]() as 
 ### hubploy
 [hubploy]() can automate the process of:
 - using `repo2docker` to build a Docker image
-- using `sops` to decrypt secret configuration for a local Helm chart
+- using `sops` to temporary decrypt secret configuration for a local Helm chart
 - using `helm` to deploy a local Helm chart
 
 ### repo2docker
-`repo2docker` is a tool to 
+`repo2docker` is a tool to TODO
 
 ### sops
 
