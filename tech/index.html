@@ -1,0 +1,472 @@
+
+
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Technology overview &#8212; Zero to Bootcamp</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" integrity="sha384-KA6wR/X5RY4zFAHpv/CnoG2UW1uogYfdnP67Uv7eULvTveboZJg0qUpmJZb5VqzN" crossorigin="anonymous">
+    <link href="../_static/css/index.css" rel="stylesheet">
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script src="../_static/sphinx-book-theme.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe"
+        const thebe_selector_input = "pre"
+        const thebe_selector_output = ".output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="canonical" href="https://2i2c-org.github.io/zero-to-bootcamp/tech/index.html" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="docsearch:language" content="en">
+
+
+<!-- Opengraph tags -->
+<meta property="og:url"         content="https://2i2c-org.github.io/zero-to-bootcamp/tech/index.html" />
+<meta property="og:type"        content="article" />
+<meta property="og:title"       content="Technology overview" />
+<meta property="og:description" content="Technology overview  This section is to ensure that you have an overview of various tools and technology that you will encounter. With such overview in place, y" />
+
+
+<meta name="twitter:card" content="summary" />
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  
+  <h1 class="site-logo" id="site-title">Zero to Bootcamp</h1>
+  
+</a>
+</div>
+
+<form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+  <ul class="nav sidenav_l1">
+ <li class="toctree-l1">
+  <a class="reference internal" href="../index.html">
+   Zero to Bootcamp
+  </a>
+ </li>
+</ul>
+</nav>
+
+ <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        <div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/tech/index.md"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.md</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+    
+</div>
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/2i2c-org/zero-to-bootcamp"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        <a class="issues-button"
+            href="https://github.com/2i2c-org/zero-to-bootcamp/issues/new?title=Issue%20on%20page%20%2Ftech/index.html&body=Your%20issue%20content%20here."><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Open an issue"><i class="fas fa-lightbulb"></i>open issue</button></a>
+        <a class="edit-button" href="https://github.com/2i2c-org/zero-to-bootcamp/edit/master/book/tech/index.md"><button
+                type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip" data-placement="left"
+                title="Edit this page"><i class="fas fa-pencil-alt"></i>suggest edit</button></a>
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#prerequisite-tech">
+   Prerequisite tech
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#yaml">
+     yaml
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#git-and-github">
+     Git and GitHub
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#docker">
+     docker
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#main-tech">
+   Main tech
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyterhub">
+     JupyterHub
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#kubernetes">
+     Kubernetes
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#essential-kubernetes-terminology">
+       Essential Kubernetes terminology
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#helm">
+     Helm
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#essential-helm-terminology">
+       Essential Helm terminology
+      </a>
+     </li>
+    </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#the-official-jupyterhub-helm-chart">
+     The official JupyterHub Helm chart
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h2 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#other-tech">
+   Other tech
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#hubploy">
+     hubploy
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#repo2docker">
+     repo2docker
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#sops">
+     sops
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#jupyter-book">
+     jupyter-book
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#github-actions">
+     GitHub actions
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#grafana">
+     grafana
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#prometheus">
+     prometheus
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#google-cloud">
+     Google cloud
+    </a>
+    <ul class="nav section-nav flex-column">
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#nfs-filestore">
+       NFS / Filestore
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#persistent-disks">
+       Persistent disks
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cloud-nat">
+       Cloud NAT
+      </a>
+     </li>
+     <li class="toc-h4 nav-item toc-entry">
+      <a class="reference internal nav-link" href="#cloud-kms">
+       Cloud KMS
+      </a>
+     </li>
+    </ul>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="section" id="technology-overview">
+<h1>Technology overview<a class="headerlink" href="#technology-overview" title="Permalink to this headline">¶</a></h1>
+<p>This section is to ensure that you have an overview of various tools and technology that you will encounter. With such overview in place, you are much better equipped to understand and architect a JupyterHub based infrastructure.</p>
+<div class="section" id="prerequisite-tech">
+<h2>Prerequisite tech<a class="headerlink" href="#prerequisite-tech" title="Permalink to this headline">¶</a></h2>
+<p>This tech is a prerequisite to learn and understand other tech.</p>
+<div class="section" id="yaml">
+<h3>yaml<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h3>
+<p><span class="xref myst">YAML</span> is like <span class="xref myst">JSON</span>: a language to format data in text. YAML is used with many tools (<code class="docutils literal notranslate"><span class="pre">kubectl</span></code>, <code class="docutils literal notranslate"><span class="pre">helm</span></code>, <code class="docutils literal notranslate"><span class="pre">hubploy</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>) so it is well worth ten minutes to get introduced to its syntax.</p>
+</div>
+<div class="section" id="git-and-github">
+<h3>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this headline">¶</a></h3>
+<p>Basic knowledge of <span class="xref myst">git</span> is assumed, such as knowing how to <em>clone</em>, <em>commit</em>, and <em>push</em>. To also understand the GitHub concept of a <em>Fork</em> and <em>Pull Request</em> is great.</p>
+</div>
+<div class="section" id="docker">
+<h3>docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
+<p>Basic knowledge of <span class="xref myst">docker</span> is assumed, such as knowing that a <em>Dockerfile</em> can be built into an <em>image</em> which when run is referred to as a <em>container</em>.</p>
+</div>
+</div>
+<div class="section" id="main-tech">
+<h2>Main tech<a class="headerlink" href="#main-tech" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="jupyterhub">
+<h3>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h3>
+<p><span class="xref myst">JupyterHub</span> is a web-server that allows its users to get access to a personal Jupyter server.</p>
+<ul class="simple">
+<li><p>JupyterHub <em>authenticates</em> (who?) and <em>authorize</em> (access?) its users with a <span class="xref myst">JupyterHub Authenticator</span>.</p></li>
+<li><p>JupyterHub <em>spawns</em> Jupyter servers for its users with a <span class="xref myst">JupyterHub Spawner</span>.</p></li>
+<li><p>JupyterHub <em>routes</em> network access to the user servers with a <span class="xref myst">JupyterHub Proxy</span>.</p></li>
+</ul>
+</div>
+<div class="section" id="kubernetes">
+<h3>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h3>
+<p>An administrator of a <span class="xref myst">Kubernetes</span> cluster acts as an orchestrator of containers and their required networking and storage. In other words, the administrator can declare intentions and rely on the Kubernetes clusters machinery to fulfill the intentions. Intentions can for example be to always have two containers running, with 10GB persistent storage mounted, and to have a public IP address route incoming traffic to a running and ready container.</p>
+<p>In practice administrators will register <em>Kubernetes resources</em> representing their intentions to the <em>Kubernetes API-server</em>, and following that the <em>Kubernetes controllers</em> for respective resource types work to ensure that this intent is met. As an example, an administrator can register a <em>Deployment resource</em> with the API-server using <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">my-deployment-resource.yaml</span></code>. Following this, the <em>Deployment controller</em> part of the Kubernetes machinery will notice that and take responsibility to meet the intent of the Deployment resource: to always have a set of containers running.</p>
+<div class="section" id="essential-kubernetes-terminology">
+<h4>Essential Kubernetes terminology<a class="headerlink" href="#essential-kubernetes-terminology" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A <em>Pod resource</em> is the intent to have a container running.</p></li>
+<li><p>A <em>Persistent Volume Claim (PVC) resource</em> is the intent to allocate storage that can be used by a pod’s container.</p></li>
+<li><p>A <em>Node resource</em> represents registered servers where pods can be scheduled to run.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="helm">
+<h3>Helm<a class="headerlink" href="#helm" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">helm</span></code> is a tool to bundle Kubernetes <em>resource templates</em> and <em>default values</em> into a <em>Helm chart</em>. It makes reuse, adjustments, and installing or upgrading, a collection of Kubernetes resources a lot simpler.</p>
+<p>The main job <code class="docutils literal notranslate"><span class="pre">helm</span></code> does is to <em>render</em> a Helm chart’s resource templates using a combination of values, both the default values part of the Helm chart and values passed by the user of the Helm chart. When Helm installs or upgrades a Helm chart, it renders the Helm chart’s templates and communicates with the Kubernetes API-server to register or update the rendered Kubernetes resources.</p>
+<div class="section" id="essential-helm-terminology">
+<h4>Essential Helm terminology<a class="headerlink" href="#essential-helm-terminology" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><p>A <em>release</em> represent an installation of a Helm chart into a Kubernetes cluster.</p></li>
+<li><p>A <em>revision</em> represent a version of a release.</p></li>
+</ul>
+</div>
+</div>
+<div class="section" id="the-official-jupyterhub-helm-chart">
+<h3>The official JupyterHub Helm chart<a class="headerlink" href="#the-official-jupyterhub-helm-chart" title="Permalink to this headline">¶</a></h3>
+<p>The <span class="xref myst">jupyterhub/zero-to-jupyterhub-k8s</span> project is both <span class="xref myst">a how-to guide</span> as well as a Helm chart to make it easy to customize and install a JupyterHub into a Kubernetes cluster.</p>
+</div>
+</div>
+<div class="section" id="other-tech">
+<h2>Other tech<a class="headerlink" href="#other-tech" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="hubploy">
+<h3>hubploy<a class="headerlink" href="#hubploy" title="Permalink to this headline">¶</a></h3>
+<p><span class="xref myst">hubploy</span> can automate the process of:</p>
+<ul class="simple">
+<li><p>using <code class="docutils literal notranslate"><span class="pre">repo2docker</span></code> to build a Docker image</p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">sops</span></code> to decrypt secret configuration for a local Helm chart</p></li>
+<li><p>using <code class="docutils literal notranslate"><span class="pre">helm</span></code> to deploy a local Helm chart</p></li>
+</ul>
+</div>
+<div class="section" id="repo2docker">
+<h3>repo2docker<a class="headerlink" href="#repo2docker" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal notranslate"><span class="pre">repo2docker</span></code> is a tool to</p>
+</div>
+<div class="section" id="sops">
+<h3>sops<a class="headerlink" href="#sops" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="jupyter-book">
+<h3>jupyter-book<a class="headerlink" href="#jupyter-book" title="Permalink to this headline">¶</a></h3>
+<p>[]</p>
+</div>
+<div class="section" id="github-actions">
+<h3>GitHub actions<a class="headerlink" href="#github-actions" title="Permalink to this headline">¶</a></h3>
+<p>By putting <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> files in a GitHub repository’s <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code> folder, instructions within the files will automatically be followed by GitHub’s automated system referred to as <em>GitHub Actions</em>. A <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> can for example be automatically built into HTML files and published by <em>GitHub Pages</em> - GitHub’s free service to publish basic websites.</p>
+</div>
+<div class="section" id="grafana">
+<h3>grafana<a class="headerlink" href="#grafana" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="prometheus">
+<h3>prometheus<a class="headerlink" href="#prometheus" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="google-cloud">
+<h3>Google cloud<a class="headerlink" href="#google-cloud" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="nfs-filestore">
+<h4>NFS / Filestore<a class="headerlink" href="#nfs-filestore" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="persistent-disks">
+<h4>Persistent disks<a class="headerlink" href="#persistent-disks" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="cloud-nat">
+<h4>Cloud NAT<a class="headerlink" href="#cloud-nat" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="cloud-kms">
+<h4>Cloud KMS<a class="headerlink" href="#cloud-kms" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./tech"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Erik Sundell<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    <script src="../_static/js/index.js"></script>
+    
+  </body>
+</html>
