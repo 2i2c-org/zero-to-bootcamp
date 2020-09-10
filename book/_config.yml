@@ -1,0 +1,14 @@
+# Jupyter Book configuration
+# ref: https://jupyterbook.org/customize/config.html#configuration-reference
+#
+title: Zero to Bootcamp
+author: Erik Sundell
+# logo: logo.png
+repository:
+  url: https://github.com/2i2c-org/zero-to-bootcamp
+  path_to_book: book
+html:
+  use_repository_button: true
+  use_issues_button: true
+  use_edit_page_button: true
+  baseurl: https://2i2c-org.github.io/zero-to-bootcamp/
