@@ -15,7 +15,8 @@
     <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
     <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
-    <link rel="stylesheet" type="text/css" href="../_static/sphinx-dropdown.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/spanels-index--0afa1ebdab0bb23b98b56d34c23d9f57.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/spanels-variables--ffc7f74dcb1b9eecba2dbcbc22818714.css" />
     <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
@@ -197,6 +198,11 @@
      docker
     </a>
    </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#markdown">
+     Markdown
+    </a>
+   </li>
   </ul>
  </li>
  <li class="toc-h2 nav-item toc-entry">
@@ -234,8 +240,8 @@
     </ul>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#the-official-jupyterhub-helm-chart">
-     The official JupyterHub Helm chart
+    <a class="reference internal nav-link" href="#the-jupyterhub-helm-chart">
+     The JupyterHub Helm chart
     </a>
    </li>
   </ul>
@@ -267,45 +273,40 @@
    </li>
    <li class="toc-h3 nav-item toc-entry">
     <a class="reference internal nav-link" href="#github-actions">
-     GitHub actions
+     GitHub Actions
     </a>
    </li>
    <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#grafana">
-     grafana
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#prometheus">
-     prometheus
-    </a>
-   </li>
-   <li class="toc-h3 nav-item toc-entry">
-    <a class="reference internal nav-link" href="#google-cloud">
-     Google cloud
+    <a class="reference internal nav-link" href="#grafana-and-prometheus">
+     Grafana and Prometheus
     </a>
     <ul class="nav section-nav flex-column">
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#nfs-filestore">
-       NFS / Filestore
+      <a class="reference internal nav-link" href="#collecting-metrics-prometheus">
+       Collecting metrics - Prometheus
       </a>
      </li>
      <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#persistent-disks">
-       Persistent disks
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cloud-nat">
-       Cloud NAT
-      </a>
-     </li>
-     <li class="toc-h4 nav-item toc-entry">
-      <a class="reference internal nav-link" href="#cloud-kms">
-       Cloud KMS
+      <a class="reference internal nav-link" href="#viewing-metrics-grafana">
+       Viewing metrics - Grafana
       </a>
      </li>
     </ul>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-file-system-nfs">
+     Network File System (NFS)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#network-address-translation-nat">
+     Network Address Translation (NAT)
+    </a>
+   </li>
+   <li class="toc-h3 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#key-management-system-kms">
+     Key Management System (KMS)
+    </a>
    </li>
   </ul>
  </li>
@@ -325,34 +326,85 @@
 <div class="section" id="prerequisite-tech">
 <h2>Prerequisite tech<a class="headerlink" href="#prerequisite-tech" title="Permalink to this headline">¶</a></h2>
 <p>This tech is a prerequisite to learn and understand other tech.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-learn-yaml admonition">
+<p class="admonition-title">Learn YAML</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=cdLNKUoMc6c">A 10 minute introduction.</a>.</p></li>
+</ul>
+</div>
+</div>
 <div class="section" id="yaml">
 <h3>yaml<a class="headerlink" href="#yaml" title="Permalink to this headline">¶</a></h3>
-<p><span class="xref myst">YAML</span> is like <span class="xref myst">JSON</span>: a language to format data in text. YAML is used with many tools (<code class="docutils literal notranslate"><span class="pre">kubectl</span></code>, <code class="docutils literal notranslate"><span class="pre">helm</span></code>, <code class="docutils literal notranslate"><span class="pre">hubploy</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>) so it is well worth ten minutes to get introduced to its syntax.</p>
+<p><a class="reference external" href="https://yaml.org/">YAML</a> is like JSON: a language to format data in text. YAML is used with many tools (<code class="docutils literal notranslate"><span class="pre">kubectl</span></code>, <code class="docutils literal notranslate"><span class="pre">helm</span></code>, <code class="docutils literal notranslate"><span class="pre">hubploy</span></code>, <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>) so it is well worth ten minutes to get introduced to its syntax.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-learn-git admonition">
+<p class="admonition-title">Learn Git</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.pluralsight.com/courses/how-git-works">A thorough introduction.</a>.</p></li>
+</ul>
+</div>
+</div>
 </div>
 <div class="section" id="git-and-github">
 <h3>Git and GitHub<a class="headerlink" href="#git-and-github" title="Permalink to this headline">¶</a></h3>
-<p>Basic knowledge of <span class="xref myst">git</span> is assumed, such as knowing how to <em>clone</em>, <em>commit</em>, and <em>push</em>. To also understand the GitHub concept of a <em>Fork</em> and <em>Pull Request</em> is great.</p>
+<p>Basic knowledge of <a class="reference external" href="https://git-scm.com/">git</a> is assumed, such as knowing how to <em>clone</em>, <em>commit</em>, and <em>push</em>. To also understand the GitHub concept’s of a <em>Fork</em> and <em>Pull Request</em> is great.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-learn-docker admonition">
+<p class="admonition-title">Learn Docker</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=gAkwW2tuIqE">A 11 minute introduction.</a>.</p></li>
+</ul>
+</div>
+</div>
 </div>
 <div class="section" id="docker">
 <h3>docker<a class="headerlink" href="#docker" title="Permalink to this headline">¶</a></h3>
-<p>Basic knowledge of <span class="xref myst">docker</span> is assumed, such as knowing that a <em>Dockerfile</em> can be built into an <em>image</em> which when run is referred to as a <em>container</em>.</p>
+<p>Basic knowledge of <a class="reference external" href="https://www.docker.com/">docker</a> is assumed, such as knowing that a <em>Dockerfile</em> can be built into an <em>image</em> which when run is referred to as a <em>container</em>.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-learn-markdown admonition">
+<p class="admonition-title">Learn Markdown</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://commonmark.org/help/tutorial/">A quick Markdown tutorial.</a>.</p></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="markdown">
+<h3>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h3>
+<p><em>Markdown</em> is a way to format text used with GitHub, Jupyter notebooks, and <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code>. To recognize Markdown formatted text and be able to write headers and code sections is generally useful.</p>
 </div>
 </div>
 <div class="section" id="main-tech">
 <h2>Main tech<a class="headerlink" href="#main-tech" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="jupyterhub">
 <h3>JupyterHub<a class="headerlink" href="#jupyterhub" title="Permalink to this headline">¶</a></h3>
-<p><span class="xref myst">JupyterHub</span> is a web-server that allows its users to get access to a personal Jupyter server.</p>
+<p><a class="reference external" href="https://jupyterhub.readthedocs.io/en/latest/">JupyterHub</a> is a web-server that allows its users to get access to a personal Jupyter server.</p>
 <ul class="simple">
-<li><p>JupyterHub <em>authenticates</em> (who?) and <em>authorize</em> (access?) its users with a <span class="xref myst">JupyterHub Authenticator</span>.</p></li>
-<li><p>JupyterHub <em>spawns</em> Jupyter servers for its users with a <span class="xref myst">JupyterHub Spawner</span>.</p></li>
-<li><p>JupyterHub <em>routes</em> network access to the user servers with a <span class="xref myst">JupyterHub Proxy</span>.</p></li>
+<li><p>JupyterHub <em>authenticates</em> (who?) and <em>authorize</em> (access?) its users with a <a class="reference external" href="https://jupyterhub.readthedocs.io/en/latest/reference/authenticators.html">JupyterHub Authenticator</a>.</p></li>
+<li><p>JupyterHub <em>spawns</em> Jupyter servers for its users with a <a class="reference external" href="https://jupyterhub.readthedocs.io/en/latest/reference/spawners.html">JupyterHub Spawner</a>.</p></li>
+<li><p>JupyterHub <em>routes</em> network access to the user servers with a <a class="reference external" href="https://jupyterhub.readthedocs.io/en/latest/reference/proxy.html">JupyterHub Proxy</a>.</p></li>
 </ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-learn-kubernetes admonition">
+<p class="admonition-title">Learn Kubernetes</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=4ht22ReBjno">A good initial introduction.</a>.</p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=QJ4fODH6DXI">A good followup introduction.</a></p></li>
+<li><p><a class="reference external" href="https://vimeo.com/245778144/4d1d597c5e">A thorough continuation.</a></p></li>
+</ul>
+</div>
+</div>
 </div>
 <div class="section" id="kubernetes">
 <h3>Kubernetes<a class="headerlink" href="#kubernetes" title="Permalink to this headline">¶</a></h3>
-<p>An administrator of a <span class="xref myst">Kubernetes</span> cluster acts as an orchestrator of containers and their required networking and storage. In other words, the administrator can declare intentions and rely on the Kubernetes clusters machinery to fulfill the intentions. Intentions can for example be to always have two containers running, with 10GB persistent storage mounted, and to have a public IP address route incoming traffic to a running and ready container.</p>
-<p>In practice administrators will register <em>Kubernetes resources</em> representing their intentions to the <em>Kubernetes API-server</em>, and following that the <em>Kubernetes controllers</em> for respective resource types work to ensure that this intent is met. As an example, an administrator can register a <em>Deployment resource</em> with the API-server using <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">my-deployment-resource.yaml</span></code>. Following this, the <em>Deployment controller</em> part of the Kubernetes machinery will notice that and take responsibility to meet the intent of the Deployment resource: to always have a set of containers running.</p>
+<p>An administrator of a <a class="reference external" href="https://kubernetes.io/">Kubernetes</a> cluster acts as an <em>orchestrator</em> of containers and their required networking and storage. In other words, the administrator can declare intentions and rely on the Kubernetes clusters machinery to fulfill the intentions. Intentions can for example be to always have two containers running, with 10GB persistent storage mounted, and to have a public IP address route incoming traffic to a running and ready container.</p>
+<p>In practice administrators will register <em>Kubernetes resources</em> representing their intentions to the <em>Kubernetes API-server</em>, and following that the <em>Kubernetes controllers</em> for the respective resource types will work to ensure that this intent is met. As an example, an administrator can register a <em>Deployment resource</em> with the API-server using <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">apply</span> <span class="pre">-f</span> <span class="pre">my-deployment-resource.yaml</span></code>. Following this, the <em>Deployment controller</em> that is part of the Kubernetes machinery will notice that and take responsibility to meet the intent of the Deployment resource: to always have a set of containers running.</p>
 <div class="section" id="essential-kubernetes-terminology">
 <h4>Essential Kubernetes terminology<a class="headerlink" href="#essential-kubernetes-terminology" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -360,12 +412,21 @@
 <li><p>A <em>Persistent Volume Claim (PVC) resource</em> is the intent to allocate storage that can be used by a pod’s container.</p></li>
 <li><p>A <em>Node resource</em> represents registered servers where pods can be scheduled to run.</p></li>
 </ul>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-learn-helm admonition">
+<p class="admonition-title">Learn Helm</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=-ykwb1d0DXU">A 14 minute introduction.</a></p></li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 <div class="section" id="helm">
 <h3>Helm<a class="headerlink" href="#helm" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">helm</span></code> is a tool to bundle Kubernetes <em>resource templates</em> and <em>default values</em> into a <em>Helm chart</em>. It makes reuse, adjustments, and installing or upgrading, a collection of Kubernetes resources a lot simpler.</p>
-<p>The main job <code class="docutils literal notranslate"><span class="pre">helm</span></code> does is to <em>render</em> a Helm chart’s resource templates using a combination of values, both the default values part of the Helm chart and values passed by the user of the Helm chart. When Helm installs or upgrades a Helm chart, it renders the Helm chart’s templates and communicates with the Kubernetes API-server to register or update the rendered Kubernetes resources.</p>
+<p><a class="reference external" href="https://helm.sh/">Helm</a> makes reuse, adjustments, and installing or upgrading, a collection of Kubernetes resources a lot simpler. <code class="docutils literal notranslate"><span class="pre">helm</span></code> is a command line tool to bundle Kubernetes <em>resource templates</em> and <em>default values</em> into a <em>Helm chart</em>.</p>
+<p>Helm’s main job is to <em>render</em> a Helm chart’s resource templates, this is done using values explicitly passed in addition to the default values part of the Helm chart. When Helm installs or upgrades a Helm chart, it first renders the templates and then communicates with the Kubernetes API-server to register or update the rendered Kubernetes resources. Another feature of Helm is to enable <em>rollbacks</em>: to be able to revert to a previous state of an installed Helm chart.</p>
 <div class="section" id="essential-helm-terminology">
 <h4>Essential Helm terminology<a class="headerlink" href="#essential-helm-terminology" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -374,16 +435,31 @@
 </ul>
 </div>
 </div>
-<div class="section" id="the-official-jupyterhub-helm-chart">
-<h3>The official JupyterHub Helm chart<a class="headerlink" href="#the-official-jupyterhub-helm-chart" title="Permalink to this headline">¶</a></h3>
-<p>The <span class="xref myst">jupyterhub/zero-to-jupyterhub-k8s</span> project is both <span class="xref myst">a how-to guide</span> as well as a Helm chart to make it easy to customize and install a JupyterHub into a Kubernetes cluster.</p>
+<div class="section" id="the-jupyterhub-helm-chart">
+<h3>The JupyterHub Helm chart<a class="headerlink" href="#the-jupyterhub-helm-chart" title="Permalink to this headline">¶</a></h3>
+<p>The JupyterHub Helm chart makes it easier to install JupyterHub in a Kubernetes cluster. It is <a class="reference external" href="https://github.com/jupyterhub/zero-to-jupyterhub-k8s">developed on GitHub</a>, <span class="xref myst">published online</span>, and comes with a <a class="reference external" href="https://z2jh.jupyter.org">how-to guide</a>.</p>
+<p>The JupyterHub Helm chart installs more than just a container running JupyterHub in the Kubernetes cluster, so here is an overview of the Kubernetes Pods you will find.</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">hub</span></code> - A JupyterHub server.</p>
+<ul>
+<li><p><a class="reference external" href="https://github.com/jupyterhub/kubespawner">KubeSpawner</a> is the <em>JupyterHub Spawner</em>, spawning user Pods.</p></li>
+<li><p><a class="reference external" href="https://github.com/jupyterhub/jupyterhub/blob/1.1.0/jupyterhub/proxy.py#L411">ConfigurableHTTPProxy (CHP, Python class)</a> is the <em>JupyterHub Proxy representation</em> used by JupyterHub, which speak with the actual CHP server in another pod.</p></li>
+</ul>
+</li>
+<li><p><code class="docutils literal notranslate"><span class="pre">proxy</span></code> - A <a class="reference external" href="https://github.com/jupyterhub/configurable-http-proxy">ConfigurableHttpProxy (CHP, NodeJS server)</a> server that routes traffic as dynamically configured by the JupyterHub server’s Proxy representation.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">autohttps</span></code> - A network proxy for incoming traffic that enables HTTPS communication. It can both acquire and updates TLS certificates from <a class="reference external" href="https://letsencrypt.org/">Let’s Encrypt</a> and manage decryption/encryption of incoming/outgoing traffic.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user-scheduler</span></code> - A configured <a class="reference external" href="https://kubernetes.io/docs/concepts/scheduling-eviction/kube-scheduler/">kube-scheduler</a> server that ensures that the spawned user Pods are packed tight on the nodes, which especially improves the ability to scale down nodes as new users don’t keep spreading out.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">user-placeholder</span></code> - A set of dummy Pods to warm seats for user Pods. They trigger automatic autoscaling that adds nodes to the cluster if needed and if possible, and they get <em>evicted</em> in favor of actual user Pods when needed for a user Pod to fit.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">continuous-image-puller</span></code> - A dummy Pod downloading the image(s) used by the user Pods ahead of time on each node where users can schedule.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">hook-image-puller</span></code> - A temporary Pod like the <code class="docutils literal notranslate"><span class="pre">continuous-image-puller</span></code>, but to ensure images are pulled to nodes before a JupyterHub Helm chart reconfigures JupyterHub to start user pods with a new version of an image.</p></li>
+</ul>
 </div>
 </div>
 <div class="section" id="other-tech">
 <h2>Other tech<a class="headerlink" href="#other-tech" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="hubploy">
 <h3>hubploy<a class="headerlink" href="#hubploy" title="Permalink to this headline">¶</a></h3>
-<p><span class="xref myst">hubploy</span> can automate the process of:</p>
+<p><a class="reference external" href="https://github.com/yuvipanda/hubploy">hubploy</a> can automate the process of:</p>
 <ul class="simple">
 <li><p>using <code class="docutils literal notranslate"><span class="pre">repo2docker</span></code> to build a Docker image</p></li>
 <li><p>using <code class="docutils literal notranslate"><span class="pre">sops</span></code> to temporary decrypt secret configuration for a local Helm chart</p></li>
@@ -392,39 +468,78 @@
 </div>
 <div class="section" id="repo2docker">
 <h3>repo2docker<a class="headerlink" href="#repo2docker" title="Permalink to this headline">¶</a></h3>
-<p><code class="docutils literal notranslate"><span class="pre">repo2docker</span></code> is a tool to TODO</p>
+<p><a class="reference external" href="https://github.com/jupyterhub/repo2docker"><code class="docutils literal notranslate"><span class="pre">repo2docker</span></code></a> is a tool to build a Docker image based on configuration files like <code class="docutils literal notranslate"><span class="pre">requirements.txt</span></code>. It is what’s used in BinderHub’s like <a class="reference external" href="https://mybinder.org">mybinder.org</a> for example.</p>
 </div>
 <div class="section" id="sops">
 <h3>sops<a class="headerlink" href="#sops" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/mozilla/sops"><code class="docutils literal notranslate"><span class="pre">sops</span></code></a> is a tool integrating with some <em>key management system</em> (KMS), and this can help you avoid needing to have encrypted content in a git repository. To store encrypted content in a git repository has downsides related to it being hard to manage situations when a decryption key is exposed.</p>
 </div>
 <div class="section" id="jupyter-book">
 <h3>jupyter-book<a class="headerlink" href="#jupyter-book" title="Permalink to this headline">¶</a></h3>
-<p>[]</p>
+<p><a class="reference external" href="https://github.com/executablebooks/jupyter-book"><code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code></a> is a command line tool with <a class="reference external" href="https://jupyterbook.org">excellent documentation</a> that help you all the way to get a good looking published website based on Jupyter notebooks and Markdown files.</p>
 </div>
 <div class="section" id="github-actions">
-<h3>GitHub actions<a class="headerlink" href="#github-actions" title="Permalink to this headline">¶</a></h3>
+<h3>GitHub Actions<a class="headerlink" href="#github-actions" title="Permalink to this headline">¶</a></h3>
 <p>By putting <code class="docutils literal notranslate"><span class="pre">.yaml</span></code> files in a GitHub repository’s <code class="docutils literal notranslate"><span class="pre">.github/workflows</span></code> folder, instructions within the files will automatically be followed by GitHub’s automated system referred to as <em>GitHub Actions</em>. A <code class="docutils literal notranslate"><span class="pre">jupyter-book</span></code> can for example be automatically built into HTML files and published by <em>GitHub Pages</em> - GitHub’s free service to publish basic websites.</p>
+<div class="margin sidebar">
+<p class="sidebar-title"></p>
+<div class="admonition-learn-grafana-and-prometheus admonition">
+<p class="admonition-title">Learn Grafana and Prometheus</p>
+<ul class="simple">
+<li><p><a class="reference external" href="https://play.grafana.org/">Live demo of Grafana.</a></p></li>
+<li><p><a class="reference external" href="https://www.youtube.com/watch?v=h4Sl21AKiDg">A 21 minute introduction to Prometheus.</a></p></li>
+</ul>
 </div>
-<div class="section" id="grafana">
-<h3>grafana<a class="headerlink" href="#grafana" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="prometheus">
-<h3>prometheus<a class="headerlink" href="#prometheus" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="google-cloud">
-<h3>Google cloud<a class="headerlink" href="#google-cloud" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="nfs-filestore">
-<h4>NFS / Filestore<a class="headerlink" href="#nfs-filestore" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="grafana-and-prometheus">
+<h3>Grafana and Prometheus<a class="headerlink" href="#grafana-and-prometheus" title="Permalink to this headline">¶</a></h3>
+<p>To use <span class="xref myst">Prometheus</span> and <span class="xref myst">Grafana</span> is not required alongside alongside a JupyterHub deployment, but they can provide an administrator with relevant insights, such as how many users are active and if things are running as they should.</p>
+<div class="section" id="collecting-metrics-prometheus">
+<h4>Collecting metrics - Prometheus<a class="headerlink" href="#collecting-metrics-prometheus" title="Permalink to this headline">¶</a></h4>
+<p>Prometheus is used to collect <em>metrics</em> into a series of values that change over time, which it does by asking JupyterHub and other servers repeatedly. A metric from JupyterHub is for example how many running servers it currently manages. Prometheus is also responsible for storing this data for a certain time and exposing a way for Grafana and other services to ask it for information.</p>
+<div class="admonition-good-to-know admonition">
+<p class="admonition-title">Good to know</p>
+<ul class="simple">
+<li><p>JupyterHub expose its current metrics as plain text webpage under the <code class="docutils literal notranslate"><span class="pre">/hub/metrics</span></code> path. The plain text format follows a syntax specific to Promethus.</p></li>
+<li><p><span class="xref myst">PromQL</span> is a language to ask Prometheus for its collected metrics, which is used by Grafana.</p></li>
+</ul>
 </div>
-<div class="section" id="persistent-disks">
-<h4>Persistent disks<a class="headerlink" href="#persistent-disks" title="Permalink to this headline">¶</a></h4>
 </div>
-<div class="section" id="cloud-nat">
-<h4>Cloud NAT<a class="headerlink" href="#cloud-nat" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="viewing-metrics-grafana">
+<h4>Viewing metrics - Grafana<a class="headerlink" href="#viewing-metrics-grafana" title="Permalink to this headline">¶</a></h4>
+<p>Grafana allows an administrator of a JupyterHub to view already collected <em>metrics</em> in <em>dashboards</em>.</p>
+<p>You can get by without needing to learn how to define your own dashboards by importing existing ones, such as <a class="reference external" href="https://github.com/neurohackademy/nh2020-jupyterhub/tree/master/grafana-dashboard-definitions">NeuroHackademy 2020’s dashboards</a>).</p>
 </div>
-<div class="section" id="cloud-kms">
-<h4>Cloud KMS<a class="headerlink" href="#cloud-kms" title="Permalink to this headline">¶</a></h4>
 </div>
+<div class="section" id="network-file-system-nfs">
+<h3>Network File System (NFS)<a class="headerlink" href="#network-file-system-nfs" title="Permalink to this headline">¶</a></h3>
+<p>For a JupyterHub deployment, a Network File System (NFS) based storage can be a useful for various reasons. Below are common reasons to use NFS alongside a JupyterHub deployment on Kubernetes.</p>
+<ol>
+<li><p><strong>read/write storage for multiple user.</strong></p>
+<p>By using NFS, you can configure access to storage with both read and write access from multiple locations.</p>
+</li>
+<li><p><strong>To reduce overprovisioning storage.</strong></p>
+<p>By using NFS, you can let users share the provided space more efficiently. Instead of paying for a fixed amount of GB for each user, you can pay for the total storage needed by all users.</p>
+</li>
+</ol>
+<p>To use NFS storage, you need a NFS server and storage that this NFS server controls. Cloud providers provide managed NFS servers, such as <span class="xref myst">Google Filestore</span>, but you can also install your own NFS server, such as <a class="reference external" href="https://github.com/nfs-ganesha/nfs-ganesha/wiki">NFS Ganesha</a> suggestably using <a class="reference external" href="https://github.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner/pull/14/files">this project</a> in a Kubernetes cluster.</p>
+</div>
+<div class="section" id="network-address-translation-nat">
+<h3>Network Address Translation (NAT)<a class="headerlink" href="#network-address-translation-nat" title="Permalink to this headline">¶</a></h3>
+<p>Network Address Translation (NAT) allows mapping of IP addresses and ports to other IP addresses and ports. This can be needed or useful for various reasons.</p>
+<ol>
+<li><p><strong>A single public IP for multiple devices.</strong></p>
+<p>Both a public IP address and a device performing NAT is needed to allow devices with <a class="reference external" href="https://en.wikipedia.org/wiki/Private_network">private IP addresses</a> in a Local Area Network (LAN) to communicate with devices on the internet. This is because a network packet on the internet must have a declared origin that other devices can reach to respond, and a private IP address isn’t going to be unique as a public IP address provided by an internet provider.</p>
+</li>
+<li><p><strong>A predefined set of public IPs.</strong></p>
+<p>If you go through a NAT to reach internet rather than an ephemeral machine, you will likely be able to control what public IPs the NAT will use. This can be useful if you want to configure a database to accept connections from a specific set of IPs for example. It can also be useful to ensure you have a collection of public IPs when accessing the internet, so services like GitHub receiving traffic doesn’t think that only one IP is sending all traffic, because then they may think their service is being abused.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="key-management-system-kms">
+<h3>Key Management System (KMS)<a class="headerlink" href="#key-management-system-kms" title="Permalink to this headline">¶</a></h3>
+<p>TODO</p>
 </div>
 </div>
 </div>
