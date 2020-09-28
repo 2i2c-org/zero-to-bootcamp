@@ -1,26 +1,25 @@
 # Technology overview
+This section help you acquire an overview of involved technology, allowing you to better understand and architect a JupyterHub centered deployment in a Kubernetes environment.
 
-This section is to ensure that you have an overview of various tools and technology that you will encounter. With such overview in place, you are much better equipped to understand and architect a JupyterHub based infrastructure.
+The involved technology is grouped in the categories: _prerequisite_, _core_, and _assisting_.
 
 
 
 ## Prerequisite tech
-
-This tech is a prerequisite to learn and understand other tech.
+To acquire some familiarity with this technology is very rewarding for the ability to understand and work with the other technology.
 
 ````{margin}
 ```{admonition} Learn YAML
-- [A 10 minute introduction.](https://www.youtube.com/watch?v=cdLNKUoMc6c).
+- [A 10 minute introduction.](https://www.youtube.com/watch?v=cdLNKUoMc6c)
 ```
 ````
 
 ### yaml
-
 [YAML](https://yaml.org/) is like JSON: a language to format data in text. YAML is used with many tools (`kubectl`, `helm`, `hubploy`, `jupyter-book`) so it is well worth ten minutes to get introduced to its syntax.
 
 ````{margin}
 ```{admonition} Learn Git
-- [A thorough introduction.](https://www.pluralsight.com/courses/how-git-works).
+- [A thorough introduction.](https://www.pluralsight.com/courses/how-git-works)
 ```
 ````
 
@@ -29,17 +28,16 @@ Basic knowledge of [git](https://git-scm.com/) is assumed, such as knowing how t
 
 ````{margin}
 ```{admonition} Learn Docker
-- [A 11 minute introduction.](https://www.youtube.com/watch?v=gAkwW2tuIqE).
+- [A 11 minute introduction.](https://www.youtube.com/watch?v=gAkwW2tuIqE)
 ```
 ````
 
 ### docker
 Basic knowledge of [docker](https://www.docker.com/) is assumed, such as knowing that a _Dockerfile_ can be built into an _image_ which when run is referred to as a _container_.
 
-
 ````{margin}
 ```{admonition} Learn Markdown
-- [A quick Markdown tutorial.](https://commonmark.org/help/tutorial/).
+- [A quick Markdown tutorial.](https://commonmark.org/help/tutorial/)
 ```
 ````
 
@@ -47,7 +45,8 @@ Basic knowledge of [docker](https://www.docker.com/) is assumed, such as knowing
 _Markdown_ is a way to format text used with GitHub, Jupyter notebooks, and `jupyter-book`. To recognize Markdown formatted text and be able to write headers and code sections is generally useful.
 
 
-## Main tech
+
+## Core tech
 
 ### JupyterHub
 [JupyterHub](https://jupyterhub.readthedocs.io/en/latest/) is a web-server that allows its users to get access to a personal Jupyter server.
@@ -57,7 +56,7 @@ _Markdown_ is a way to format text used with GitHub, Jupyter notebooks, and `jup
 
 ````{margin}
 ```{admonition} Learn Kubernetes
-- [A good initial introduction.](https://www.youtube.com/watch?v=4ht22ReBjno).
+- [A good initial introduction.](https://www.youtube.com/watch?v=4ht22ReBjno)
 - [A good followup introduction.](https://www.youtube.com/watch?v=QJ4fODH6DXI)
 - [A thorough continuation.](https://vimeo.com/245778144/4d1d597c5e)
 ```
@@ -89,7 +88,7 @@ Helm's main job is to _render_ a Helm chart's resource templates, this is done u
 - A _revision_ represent a version of a release.
 
 ### The JupyterHub Helm chart
-The JupyterHub Helm chart makes it easier to install JupyterHub in a Kubernetes cluster. It is [developed on GitHub](https://github.com/jupyterhub/zero-to-jupyterhub-k8s), [published online](), and comes with a [how-to guide](https://z2jh.jupyter.org).
+The JupyterHub Helm chart makes it easier to install JupyterHub in a Kubernetes cluster. It is [developed on GitHub](https://github.com/jupyterhub/zero-to-jupyterhub-k8s), [published online](https://jupyterhub.github.io/helm-chart/#development-releases-jupyterhub), and comes with a [how-to guide](https://z2jh.jupyter.org).
 
 The JupyterHub Helm chart installs more than just a container running JupyterHub in the Kubernetes cluster, so here is an overview of the Kubernetes Pods you will find.
 
@@ -105,7 +104,8 @@ The JupyterHub Helm chart installs more than just a container running JupyterHub
 
 
 
-## Other tech
+## Assisting tech
+This tech is assisting in various ways.
 
 ### hubploy
 [hubploy](https://github.com/yuvipanda/hubploy) can automate the process of:
@@ -116,14 +116,31 @@ The JupyterHub Helm chart installs more than just a container running JupyterHub
 ### repo2docker
 [`repo2docker`](https://github.com/jupyterhub/repo2docker) is a tool to build a Docker image based on configuration files like `requirements.txt`. It is what's used in BinderHub's like [mybinder.org](https://mybinder.org) for example.
 
-### sops
-[`sops`](https://github.com/mozilla/sops) is a tool integrating with some _key management system_ (KMS), and this can help you avoid needing to have encrypted content in a git repository. To store encrypted content in a git repository has downsides related to it being hard to manage situations when a decryption key is exposed.
+### sops and KMS
+[`sops`](https://github.com/mozilla/sops) is a tool integrating with popular _Key Management Services_ (KMS). `sops` and a KMS can help you reduce the security issues of storing encrypted content in a git repository.
+
+These are benefits using `sops` and a KMS for encryption:
+- `sops` help you edit files in memory without storing them decrypted on your computer.
+- The underlying KMS help you store also the key to decrypt off your computer.
+- If the credentials used by `sops` to work with the KMS become exposed, such as a key for a _service account_ with permissions to access the KMS, you have some better options than if the decryption key itself was leaked.
+  - You can _revoke_ the key to the service account that was exposed.
+  - You can _audit_ the KMS logs to decide if you think someone got hold of the decryption key while it was possible using the exposed service account key.
+
+#### Hubploy's sops integration
+
+As using `helm` to upgrade your Helm chart requires access to decrypted secrets on the file system, you still end up with decrypted files on the file system which should be avoided. Thankfully, Hubploy's integration with `sops` help to ensure those are only temporarily stored on the file system meanwhile `helm upgrade` run, to be deleted directly after.
 
 ### jupyter-book
 [`jupyter-book`](https://github.com/executablebooks/jupyter-book) is a command line tool with [excellent documentation](https://jupyterbook.org) that help you all the way to get a good looking published website based on Jupyter notebooks and Markdown files.
 
-### GitHub Actions
-By putting `.yaml` files in a GitHub repository's `.github/workflows` folder, instructions within the files will automatically be followed by GitHub's automated system referred to as _GitHub Actions_. A `jupyter-book` can for example be automatically built into HTML files and published by _GitHub Pages_ - GitHub's free service to publish basic websites.
+### CI - GitHub Actions
+Continuous Integration (CI) is the practice and tooling to automate procedures following a change to a git repository.
+
+For example, by putting `.yaml` files in a GitHub repository's `.github/workflows` folder, instructions within the files will automatically be followed by GitHub's automated system referred to as _GitHub Actions_.
+
+Possible uses of a CI system:
+- To build a documentation with `jupyter-book` into HTML and JavaScript, and then pass it to be published by _GitHub Pages_ - GitHub's free service to publish basic websites.
+- To run `hubploy` to deploy an updated version of a Helm chart to a Kubernetes cluster.
 
 ````{margin}
 ```{admonition} Learn Grafana and Prometheus
@@ -133,14 +150,14 @@ By putting `.yaml` files in a GitHub repository's `.github/workflows` folder, in
 ````
 
 ### Grafana and Prometheus
-To use [Prometheus]() and [Grafana]() is not required alongside alongside a JupyterHub deployment, but they can provide an administrator with relevant insights, such as how many users are active and if things are running as they should.
+To use [Prometheus](https://www.prometheus.io/docs/introduction/overview/) and [Grafana](https://grafana.com/grafana/) is not required alongside alongside a JupyterHub deployment, but they can provide an administrator with relevant insights, such as how many users are active and if things are running as they should.
 
 #### Collecting metrics - Prometheus
 Prometheus is used to collect _metrics_ into a series of values that change over time, which it does by asking JupyterHub and other servers repeatedly. A metric from JupyterHub is for example how many running servers it currently manages. Prometheus is also responsible for storing this data for a certain time and exposing a way for Grafana and other services to ask it for information.
 
 ```{admonition} Good to know
-- JupyterHub expose its current metrics as plain text webpage under the `/hub/metrics` path. The plain text format follows a syntax specific to Promethus.
-- [PromQL]() is a language to ask Prometheus for its collected metrics, which is used by Grafana.
+- JupyterHub expose its current metrics as plain text webpage under the `/hub/metrics` path. The plain text format follows a syntax specific to Prometheus.
+- [PromQL](https://prometheus.io/docs/prometheus/latest/querying/basics/) is a language to ask Prometheus for its collected metrics, which is used by Grafana.
 ```
 
 #### Viewing metrics - Grafana
@@ -154,11 +171,12 @@ For a JupyterHub deployment, a Network File System (NFS) based storage can be a 
 1. __read/write storage for multiple user.__
 
    By using NFS, you can configure access to storage with both read and write access from multiple locations.
+
 1. __To reduce overprovisioning storage.__
 
    By using NFS, you can let users share the provided space more efficiently. Instead of paying for a fixed amount of GB for each user, you can pay for the total storage needed by all users.
 
-To use NFS storage, you need a NFS server and storage that this NFS server controls. Cloud providers provide managed NFS servers, such as [Google Filestore](), but you can also install your own NFS server, such as [NFS Ganesha](https://github.com/nfs-ganesha/nfs-ganesha/wiki) suggestably using [this project](https://github.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner/pull/14/files) in a Kubernetes cluster.
+To use NFS storage, you need a NFS server and storage that this NFS server controls. Cloud providers provide managed NFS servers, such as [Google Filestore](https://cloud.google.com/filestore), but you can also install your own NFS server, such as [NFS Ganesha](https://github.com/nfs-ganesha/nfs-ganesha/wiki), into your Kubernetes cluster using a Helm chart. A Helm chart to do this job is at the time of writing being migrated from [here](https://github.com/helm/charts/tree/master/stable/nfs-server-provisioner) to [here](https://github.com/kubernetes-sigs/nfs-ganesha-server-and-external-provisioner/).
 
 ### Network Address Translation (NAT)
 Network Address Translation (NAT) allows mapping of IP addresses and ports to other IP addresses and ports. This can be needed or useful for various reasons.
@@ -170,7 +188,3 @@ Network Address Translation (NAT) allows mapping of IP addresses and ports to ot
 1. __A predefined set of public IPs.__
 
    If you go through a NAT to reach internet rather than an ephemeral machine, you will likely be able to control what public IPs the NAT will use. This can be useful if you want to configure a database to accept connections from a specific set of IPs for example. It can also be useful to ensure you have a collection of public IPs when accessing the internet, so services like GitHub receiving traffic doesn't think that only one IP is sending all traffic, because then they may think their service is being abused.
-
-### Key Management System (KMS)
-
-TODO
